@@ -1,4 +1,5 @@
 import React from "react";
+import { FemaleAvatars, MaleAvatars } from "./Avatars";
 
 export const UserTable = ({ userList }) => {
   return (
@@ -15,10 +16,15 @@ export const UserTable = ({ userList }) => {
         <tbody>
           {userList.map((user, i) => (
             <tr key={i}>
-              {/* key prop should be givne to the elements inside an array to give the elements a sabel identify. */}
+              {/* key prop should be givne to the elements inside an array to give the elements a stable identify. */}
               <th scope="row">{i + 1}</th>
-              <td></td>
-              <td>{user.name}</td>
+              <td>
+                {user.gender === "m" ? <MaleAvatars /> : <FemaleAvatars />}
+                {/* conditional Rendering, : stands for else condition*/}
+              </td>
+              <td style={{ color: user.gender === "m" ? "blue" : "pink" }}>
+                {user.name}
+              </td>
               <td>{user.gender}</td>
               {/* // Receiving props from parents to child component */}
             </tr>
