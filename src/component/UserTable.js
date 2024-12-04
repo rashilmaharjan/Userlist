@@ -25,7 +25,9 @@ export const UserTable = ({ userList }) => {
               <td style={{ color: user.gender === "m" ? "blue" : "pink" }}>
                 {user.name}
               </td>
-              <td>{user.gender}</td>
+              <td style={{ color: user.gender === "m" ? "red" : "violet" }}>
+                {user.gender}
+              </td>
               {/* // Receiving props from parents to child component */}
             </tr>
           ))}
